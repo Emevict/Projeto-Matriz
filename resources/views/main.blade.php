@@ -11,14 +11,13 @@
     <title>@yield('title', 'Minha Aplicação')</title>
 </head>
 
+@include('partials.header') 
+
 <body>
-    @include('partials.header') 
-
-    <main>
-        @yield('content') 
-    </main>
-
+    <div class="main-content" style="margin-top: 50px; text-align: center">
+        @yield('content')   
+    </div>
+    
     @vite('resources/js/main.js')
 </body>
-
 </html>

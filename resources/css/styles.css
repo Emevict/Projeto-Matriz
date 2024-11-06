@@ -6,7 +6,6 @@
   --header-height: 3.5rem;
 
   /*========== Colors ==========*/
-  /*Color mode HSL(hue, saturation, lightness)*/
   --black-color: hsl(220, 24%, 12%);
   --black-color-light: hsl(220, 24%, 15%);
   --black-color-lighten: hsl(220, 20%, 18%);
@@ -14,7 +13,6 @@
   --body-color: hsl(220, 100%, 97%);
 
   /*========== Font and typography ==========*/
-  /*.5rem = 8px | 1rem = 16px ...*/
   --body-font: "Montserrat", sans-serif;
   --normal-font-size: .938rem;
 
@@ -45,12 +43,11 @@ body {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   background-color: var(--body-color);
+  padding-top: var(--header-height);
 }
 
 ul {
   list-style: none;
-  /* Color highlighting when pressed on mobile devices */
-  /*-webkit-tap-highlight-color: transparent;*/
 }
 
 a {
@@ -74,13 +71,43 @@ a {
   z-index: var(--z-fixed);
 }
 
+/*=============== HEADER-MAIN ===============*/
+.header-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--black-color);
+  color: var(--white-color);
+}
+
+.header-main .logo {
+  font-size: 1.5rem;
+  font-weight: var(--font-semi-bold);
+}
+
+.header-main .menu {
+  display: flex;
+  gap: 1rem;
+}
+
+.header-main .menu a {
+  color: var(--white-color);
+  font-weight: var(--font-regular);
+  transition: color 0.3s;
+}
+
+.header-main .menu a:hover {
+  color: var(--black-color-light);
+}
+
 /*=============== NAV ===============*/
 .nav {
   height: var(--header-height);
 }
 
-.nav__logo, 
-.nav__burger, 
+.nav__logo,
+.nav__burger,
 .nav__close {
   color: var(--white-color);
 }
@@ -242,6 +269,20 @@ a {
 
 .dropdown__sublink {
   background-color: var(--black-color-lighten);
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  color: var(--black-color); /* Cor do texto principal */
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: var(--font-semi-bold);
+}
+
+p {
+  font-size: 1rem;
 }
 
 /*=============== BREAKPOINTS ===============*/
