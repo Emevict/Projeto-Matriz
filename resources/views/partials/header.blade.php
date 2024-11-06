@@ -2,7 +2,7 @@
     <nav class="nav container">
         <div class="nav__data">
             <a href="#" class="nav__logo">
-                <i class="ri-planet-line"></i> BAGULHO DOIDO
+                <i class="ri-planet-line" style="color: green;"></i> BAGULHO DOIDO
             </a>
 
             <div class="nav__toggle" id="nav-toggle">
@@ -13,7 +13,7 @@
 
         <div class="nav__menu" id="nav-menu">
             <ul class="nav__list">
-                <li><a href="#" class="nav__link">Início</a></li>
+                <li><a href="{{ route('home') }}" class="nav__link">Início</a></li>
 
                 <li><a href="#" class="nav__link">Sobre</a></li>
 
@@ -92,6 +92,16 @@
                 </li>
 
                 <li><a href="#" class="nav__link">Contato</a></li>
+                <li>
+                    @if (Auth::check())
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button type="submit" class="nav__link">Sair</button>
+                        </form>
+                    @else
+                        <a href="{{ route('guideLogin') }}" class="nav__link">Fazer Login</a>
+                    @endif
+                </li>
             </ul>
         </div>
     </nav>
