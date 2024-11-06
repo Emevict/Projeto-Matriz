@@ -2,8 +2,8 @@
 <header class="header">
     <nav class="nav container">
         <div class="nav__data">
-            <a href="{{ route('home') }}" class="nav__logo">
-                <i class="ri-planet-line" style="color: green;"></i> MATRIZ
+            <a href="{{ route('home') }}" class="nav__logo" style="color: {{ Auth::check() && $PermissionService->isAdmin(Auth::user()->id) ? 'green' : '' }}">
+                <i class="ri-planet-line" style="color: {{ Auth::check() && $PermissionService->isAdmin(Auth::user()->id) ? 'green' : '' }}"></i> MATRIZ
             </a>
 
             <div class="nav__toggle" id="nav-toggle">
