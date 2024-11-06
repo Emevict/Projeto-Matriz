@@ -285,6 +285,120 @@ p {
   font-size: 1rem;
 }
 
+#btn_logout{
+  background: none; 
+  border: none; 
+  color: inherit; 
+  padding: 0; 
+  font: inherit; 
+  cursor: pointer;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+#btn_logout:hover {
+  color: #054996;
+}
+
+#user_image{
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: color 0.6s ease, text-decoration 0.6s ease;
+}
+
+ #user_image:hover{
+  border: 2px solid #054996;
+ }
+/*=============== TABLE ===============*/
+.table-wrapper {
+  display: flex;
+  justify-content: center;
+  height: 80vh;
+  padding: 20px;
+}
+
+#permissions-table {
+  width: 100%;
+  max-width: 80%;
+  margin: 0 auto;
+  border: 1px solid #ddd; 
+  border-radius: 8px; 
+  border-collapse: collapse;
+}
+
+#permissions-table th, #permissions-table td {
+  padding: 15px 20px;
+  text-align: center;
+}
+
+#permissions-table th {
+  background-color: #f4f4f4;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+#permissions-table td {
+  border-bottom: 1px solid #ddd;
+}
+
+.dataTables_wrapper {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dataTables_length{
+  display: none;
+}
+
+.dataTables_filter, .dataTables_info, .dataTables_paginate {
+  text-align: center; 
+  margin-bottom: 10px;
+}
+
+.dataTables_paginate {
+  margin-top: 10px;
+}
+
+.dataTables_filter input {
+  margin-left: 10px;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.admin-checkbox {
+  width: 50px;
+  height: 25px;
+  border-radius: 15px;
+  position: relative;
+  appearance: none;
+  background-color: #ddd;
+  transition: background-color 0.3s ease;
+}
+
+.admin-checkbox:checked {
+  background-color: #054996;
+}
+
+.admin-checkbox:before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px; 
+  transition: transform 0.3s ease;
+}
+
+.admin-checkbox:checked:before {
+  transform: translateX(25px);
+}
+
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
 @media screen and (max-width: 340px) {

@@ -1,8 +1,9 @@
+@inject('PermissionService', 'App\Http\Services\PermissionService')
 <header class="header">
     <nav class="nav container">
         <div class="nav__data">
             <a href="#" class="nav__logo">
-                <i class="ri-planet-line" style="color: green;"></i> BAGULHO DOIDO
+                <i class="ri-planet-line" style="color: green;"></i> MATRIZ
             </a>
 
             <div class="nav__toggle" id="nav-toggle">
@@ -71,6 +72,13 @@
                     </div>
 
                     <ul class="dropdown__menu">
+                        @if (Auth::check() && $PermissionService->isAdmin(Auth::user()->id))
+                            <li>
+                                <a href="{{ route('guidePermission') }}" class="dropdown__link">
+                                    <i class="ri-shield-user-line"></i> Permissões
+                                </a>
+                            </li>
+                        @endif
                         <li>
                             <a href="#" class="dropdown__link">
                                 <i class="ri-user-line"></i> Perfis
@@ -90,13 +98,12 @@
                         </li>
                     </ul>
                 </li>
-
                 <li><a href="#" class="nav__link">Contato</a></li>
-                <li>
+                <li class="nav__link">
                     @if (Auth::check())
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
-                            <button type="submit" class="nav__link">Sair</button>
+                            <button type="submit" class="nav__link" id="btn_logout">Sair</button>
                         </form>
                     @else
                         <a href="{{ route('guideLogin') }}" class="nav__link">Fazer Login</a>
