@@ -31,29 +31,3 @@ const showMenu = (toggleId, navId) =>{
         }
     });
 })
-
-// $(document).ready(function() {
-//     $('.admin-checkbox').on('change', function() {
-//         const userId = $(this).data('user-id');
-//         const isAdmin = $(this).prop('checked') ? 1 : 0;
-//         const updateUrl = document.getElementById('ajax-url').getAttribute('data-url');
-//         console.log(updateUrl);
-//         console.log('caiu aqui');
-//         $.ajax({
-//             url: updateUrl,
-//             method: 'POST',
-//             data: {
-//                 user_id: userId,
-//                 is_admin: isAdmin,
-//                 _token: $('meta[name="csrf-token"]').attr('content')
-//             },
-//             success: function(response) {
-//                 alert('Status atualizado com sucesso!');
-//             },
-//             error: function(xhr, status, error) {
-//                 alert('Erro ao atualizar status. Tente novamente!');
-//                 $(this).prop('checked', !isAdmin);
-//             }
-//         });
-//     });
-// });

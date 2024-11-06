@@ -4,12 +4,14 @@ use App\Http\Controllers\PermissionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\AdminMiddleware;
-
+use App\Http\Middleware\LoginMiddleware;
 
 //Rota principal
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::middleware([LoginMiddleware::class])->group(function () { //Validar se o usuario esta logado
+    Route::get('/', function () {
+        return view('welcome');
+    })->name('home');
+});
 
 //Rotas das guias
 Route::get('/login', [UserController::class, 'guideLogin'])->name('guideLogin');
