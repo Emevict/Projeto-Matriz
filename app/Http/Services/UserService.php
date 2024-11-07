@@ -20,7 +20,7 @@ class UserService
 
     public static function getUsers()
     {
-        $users = User::all();
+        $users = User::where('is_master', 0)->get();
         return $users;
     }
 
