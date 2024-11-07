@@ -24,7 +24,7 @@
                                 <input type="checkbox" class="admin-checkbox" data-user-id="{{ $user->id }}" 
                                        {{ $user->is_admin ? 'checked' : '' }} 
                                        onchange="this.form.submit()"
-                                       @disabled(true)>
+                                       @disabled(!Auth::user()->is_master)>
                             </form>
                         </td>                    
                     </tr>
