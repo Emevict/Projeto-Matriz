@@ -50,14 +50,14 @@ class UserController extends Controller
             return redirect()->route('home')->with('success', 'Login realizado com sucesso!');
         }
 
-        return back()->withErrors(['email' => 'Credenciais inválidas.']);
+        return back()->with(['error' => 'Credenciais inválidas.']);
     }
 
     public function logout()
     {
         Auth::logout();
 
-        return redirect()->route('home')->with('success', 'Você foi desconectado com sucesso!');
+        return redirect()->route('guideLogin')->with('success', 'Você foi desconectado com sucesso!');
     }
 
     public static function createLoginSocial($params)
@@ -80,6 +80,4 @@ class UserController extends Controller
         Auth::login($user);
         return true;
     }
-    
-
 }

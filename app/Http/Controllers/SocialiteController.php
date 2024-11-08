@@ -2,12 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
-
-use function Laravel\Prompts\error;
+use App\Http\Controllers\UserController;
 
 class SocialiteController extends Controller
 {
@@ -26,11 +22,11 @@ class SocialiteController extends Controller
             $return = UserController::authLoginSocial($user);
     
             if($return){
-                return redirect()->route('home')->with('success', 'Usuário criado com sucesso!');
+                return redirect()->route('home')->with('success', 'Usuário logado com sucesso');
             }
         } catch (\Exception $e) {
             info($e->getMessage());
-            return redirect()->route('home');
+            return redirect()->route('guideLogin')->with('error', 'Erro ao autenticar');
         }
     }
 }

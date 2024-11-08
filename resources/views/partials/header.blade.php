@@ -80,7 +80,7 @@
                             </li>
                         @endif
                         <li>
-                            <a href="#" class="dropdown__link">
+                            <a href=" {{ route('guideProfile') }}" class="dropdown__link">
                                 <i class="ri-user-line"></i> Perfis
                             </a>
                         </li>

@@ -1,7 +1,8 @@
 @extends('mainLogin')
 @section('title', 'Login')
 @section('content')
-    <section class="container forms">
+<section class="container forms">
+    @include('layouts.modal')
         <div class="form login">
             <div class="form-content">
                 <header>Entrar</header>
