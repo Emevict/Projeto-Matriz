@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 
+use function Laravel\Prompts\error;
+
 class SocialiteController extends Controller
 {
     public function authProviderRedirect($provider)
@@ -19,14 +21,16 @@ class SocialiteController extends Controller
 
     public function socialAuth($provider)
     {
-        $user = Socialite::driver($provider)->user();
-        $return = UserController::authLoginSocial($user);
-
-        if($return){
-            return redirect()->route('home')->with('success', 'Usuário criado com sucesso!');
+        try{
+            $user = Socialite::driver($provider)->user();
+            $return = UserController::authLoginSocial($user);
+    
+            if($return){
+                return redirect()->route('home')->with('success', 'Usuário criado com sucesso!');
+            }
+        } catch (\Exception $e) {
+            error($e->getMessage());
+            return false;
         }
-
-        return false;
-       
     }
 }
