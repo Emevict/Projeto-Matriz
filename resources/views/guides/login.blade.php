@@ -29,12 +29,6 @@
             </div>
             <div class="line"></div>
             <div class="media-options">
-                <a href="" class="field facebook">
-                    <i class='bx bxl-facebook facebook-icon'></i>
-                    <span>Entrar com Facebook</span>
-                </a>
-            </div>
-            <div class="media-options">
                 <a href="{{ route('auth.google') }}" class="field google">
                     <img src="{{ asset('img/google-img.png') }}" class="google-img">
                     <span>Entrar com Google</span>
@@ -67,12 +61,6 @@
                 </div>
             </div>
             <div class="line"></div>
-            <div class="media-options">
-                <a href="" class="field facebook">
-                    <i class='bx bxl-facebook facebook-icon'></i>
-                    <span>Entrar com Facebook</span>
-                </a>
-            </div>
             <div class="media-options">
                 <a href="" class="field google">
                     <img src="{{ asset('img/google-img.png') }}" class="google-img">

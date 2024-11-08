@@ -62,19 +62,24 @@ class UserController extends Controller
 
     public static function createLoginGoogle($params)
     {
-        $user = new User();
-        $user->name = $params->name;
-        $user->email = $params->email;
-        $user->id_google = $params->id;
-        $user->password = Hash::make($params->id);
-        $user->save();
-        return true;
+        $user = User::updateOrCreate(
+            ['email' => $params->email],
+            [
+                'name' => $params->name,
+                'id_google' => $params->id,
+                'password' => Hash::make($params->id)
+            ]
+        );
+    
+        return $user;
     }
 
     public static function authLoginGoogle($params)
     {
-       Auth::attempt(['email' => $params->email, 'password' => $params->id_google]);
-       return true;
+        $user = self::createLoginGoogle($params);
+        Auth::login($user);
+        return true;
     }
+    
 
 }

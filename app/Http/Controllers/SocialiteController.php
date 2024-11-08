@@ -17,15 +17,14 @@ class SocialiteController extends Controller
     public function googleAuth()
     {
         $user = Socialite::driver('google')->user();
-        $userDb = User::where('id_google', $user->id)->first();
 
-        if($userDb){
-            if(UserController::authLoginGoogle($userDb)){
-                return redirect()->route('home')->with('success', 'Usuário autenticado com sucesso!');
-            };
+        $return = UserController::authLoginGoogle($user);
+
+        if($return){
+            return redirect()->route('home')->with('success', 'Usuário criado com sucesso!');
         }
 
-        UserController::createLoginGoogle($user);
-        return redirect()->route('home')->with('success', 'Usuário criado com sucesso!');
+        return false;
+       
     }
 }
