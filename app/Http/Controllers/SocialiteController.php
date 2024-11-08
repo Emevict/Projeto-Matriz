@@ -29,8 +29,8 @@ class SocialiteController extends Controller
                 return redirect()->route('home')->with('success', 'Usuário criado com sucesso!');
             }
         } catch (\Exception $e) {
-            error($e->getMessage());
-            return false;
+            info($e->getMessage());
+            return redirect()->route('home');
         }
     }
 }
