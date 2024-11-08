@@ -40,7 +40,7 @@ class UserController extends Controller
 
     public function authLogin(Request $request)
     {
-       
+        
         $request->validate([
             'email' => 'required|email',
             'password' => 'required|string',
@@ -58,6 +58,23 @@ class UserController extends Controller
         Auth::logout();
 
         return redirect()->route('home')->with('success', 'Você foi desconectado com sucesso!');
+    }
+
+    public static function createLoginGoogle($params)
+    {
+        $user = new User();
+        $user->name = $params->name;
+        $user->email = $params->email;
+        $user->id_google = $params->id;
+        $user->password = Hash::make($params->id);
+        $user->save();
+        return true;
+    }
+
+    public static function authLoginGoogle($params)
+    {
+       Auth::attempt(['email' => $params->email, 'password' => $params->id_google]);
+       return true;
     }
 
 }

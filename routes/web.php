@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\SocialiteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\AdminMiddleware;
@@ -11,6 +12,12 @@ Route::middleware([LoginMiddleware::class])->group(function () { //Validar se o 
     Route::get('/', function () {
         return view('welcome');
     })->name('home');
+});
+
+//Login com Google
+Route::controller(SocialiteController::class)->group(function () {
+    Route::get('/auth/google', 'googleLogin')->name('auth.google');
+    Route::get('/auth/google-callback', 'googleAuth')->name('auth.google-callback');
 });
 
 //Rotas das guias
