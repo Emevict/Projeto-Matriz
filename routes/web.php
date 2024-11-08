@@ -16,8 +16,8 @@ Route::middleware([LoginMiddleware::class])->group(function () { //Validar se o 
 
 //Login com Google
 Route::controller(SocialiteController::class)->group(function () {
-    Route::get('/auth/google', 'googleLogin')->name('auth.google');
-    Route::get('/auth/google-callback', 'googleAuth')->name('auth.google-callback');
+    Route::get('/auth/redirection/{provider}', 'authProviderRedirect')->name('auth.redirection');
+    Route::get('/auth/{provider}/callback', 'socialAuth')->name('auth.allback');
 });
 
 //Rotas das guias

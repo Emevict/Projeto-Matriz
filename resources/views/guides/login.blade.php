@@ -29,13 +29,13 @@
             </div>
             <div class="line"></div>
             <div class="media-options">
-                <a href="" class="field facebook">
+                <a href="{{ route('auth.redirection', 'facebook') }}" class="field facebook">
                     <i class='bx bxl-facebook facebook-icon'></i>
                     <span>Entrar com Facebook</span>
                 </a>
             </div>
             <div class="media-options">
-                <a href="{{ route('auth.google') }}" class="field google">
+                <a href="{{ route('auth.redirection', 'google') }}" class="field google">
                     <img src="{{ asset('img/google-img.png') }}" class="google-img">
                     <span>Entrar com Google</span>
                 </a>
@@ -68,13 +68,13 @@
             </div>
             <div class="line"></div>
             <div class="media-options">
-                <a href="" class="field facebook">
+                <a href="{{ route('auth.redirection', 'facebook') }}" class="field facebook">
                     <i class='bx bxl-facebook facebook-icon'></i>
                     <span>Entrar com Facebook</span>
                 </a>
             </div>
             <div class="media-options">
-                <a href="" class="field google">
+                <a href="{{ route('auth.redirection', 'google') }}" class="field google">
                     <img src="{{ asset('img/google-img.png') }}" class="google-img">
                     <span>Entrar com Google</span>
                 </a>

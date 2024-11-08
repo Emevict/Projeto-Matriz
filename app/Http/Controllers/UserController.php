@@ -60,13 +60,13 @@ class UserController extends Controller
         return redirect()->route('home')->with('success', 'Você foi desconectado com sucesso!');
     }
 
-    public static function createLoginGoogle($params)
+    public static function createLoginSocial($params)
     {
         $user = User::updateOrCreate(
             ['email' => $params->email],
             [
                 'name' => $params->name,
-                'id_google' => $params->id,
+                'id_social' => $params->id,
                 'password' => Hash::make($params->id)
             ]
         );
@@ -74,9 +74,9 @@ class UserController extends Controller
         return $user;
     }
 
-    public static function authLoginGoogle($params)
+    public static function authLoginSocial($params)
     {
-        $user = self::createLoginGoogle($params);
+        $user = self::createLoginSocial($params);
         Auth::login($user);
         return true;
     }

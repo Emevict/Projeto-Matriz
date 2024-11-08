@@ -9,16 +9,18 @@ use Laravel\Socialite\Facades\Socialite;
 
 class SocialiteController extends Controller
 {
-    public function googleLogin()
+    public function authProviderRedirect($provider)
     {
-       return Socialite::driver('google')->redirect();
+        if($provider){
+            return Socialite::driver($provider)->redirect();
+        }
+        abort(404);
     }
 
-    public function googleAuth()
+    public function socialAuth($provider)
     {
-        $user = Socialite::driver('google')->user();
-
-        $return = UserController::authLoginGoogle($user);
+        $user = Socialite::driver($provider)->user();
+        $return = UserController::authLoginSocial($user);
 
         if($return){
             return redirect()->route('home')->with('success', 'Usuário criado com sucesso!');
