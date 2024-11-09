@@ -19,6 +19,6 @@ class AdminMiddleware
         if (Auth::check() && Auth::user()->is_admin) {
             return $next($request);
         }
-        return redirect()->route('home')->with('error', 'Acesso não autorizado.');
+        return redirect()->route('home')->with('warning', 'Acesso não autorizado.');
     }
 }

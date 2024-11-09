@@ -29,6 +29,9 @@ Route::get('/createlogin', [UserController::class, 'guideCreateLogin'])->name('g
 Route::post('/createlogin', [UserController::class, 'createLogin'])->name('createLogin'); 
 Route::post('/authlogin', [UserController::class, 'authLogin'])->name('authLogin'); 
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+Route::post('/addProfile', [ProfileController::class, 'addProfile'])->name('addProfile');
+Route::post('/updateProfile', [ProfileController::class, 'updateProfile'])->name('updateProfile');
+Route::delete('/deleteProfile/{profile_id}', [ProfileController::class, 'deleteProfile'])->name('deleteProfile');
 
 //Rotas para ADMIN
 Route::middleware([AdminMiddleware::class])->group(function () {

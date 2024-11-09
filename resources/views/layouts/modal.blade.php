@@ -32,13 +32,13 @@
             const progress = document.querySelector('.progress');
             progress.style.width = '0%';
             setTimeout(() => {
-                progress.style.transition = 'width 1.4s linear';
+                progress.style.transition = 'width 1.9s linear';
                 progress.style.width = '100%';
             }, 100);
 
             setTimeout(() => {
                 modal.style.display = 'none';
-            }, 1500); 
+            }, 2000); 
         });
     </script>
     @endif
